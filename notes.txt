@@ -1,0 +1,5 @@
+# Build
+cargo build
+
+# Test
+php -d "extension=target/debug/libhello_world.dylib" -r "reverse_string('Gurka');"
