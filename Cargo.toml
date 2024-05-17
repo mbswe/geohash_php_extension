@@ -2,6 +2,10 @@
 name = "libGeo"
 version = "0.1.0"
 edition = "2021"
+authors = ["Magnus Strömberg <magnus@magnus.tech>"]
+description = "A simple demonstration of a PHP extension written in Rust"
+repository = "https://github.com/mbswe/geohash_php_extension"
+license = "GNU GPLv3"
 
 [dependencies]
 geohash = "0.13.1"
@@ -9,5 +13,15 @@ haversine = "0.2.1"
 phper = "0.13.1"
 
 [lib]
-name = "Geo"
+name = "geo"
 crate-type = ["cdylib"]
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = "z"
+strip = true
+lto = true
+codegen-units = 1
+panic = "abort"
